@@ -25,6 +25,23 @@ let createAnswerP = function(t) {
 
     return p
 }
+let createOptionsP = function(t) {
+    t = "Possible Options: " + t
+    let p = new docx.Paragraph({ 
+        keepLines: true, 
+
+        children: [
+            new docx.TextRun({
+                text: t,
+                italics: true,
+                size: 16,
+                color: "585858"
+            })
+        ]
+    })
+
+    return p
+}
 let createS = function(newLine, p) {
     let section = {
         properties: {
@@ -80,8 +97,12 @@ for(const section in data) {
                     let answerPara = createAnswerP(qel.answer)
                     //sectionsList.push(createS(false, answerPara))
                     paras.push(questionPara, answerPara)
+                    if (qel.type === "dropdown") {
+                        paras.push(createOptionsP(qel.options))
+                    }
                 }
             }
+
 
             if (Object.hasOwnProperty.call(data, section)) {
                 const el = data[section];
