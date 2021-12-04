@@ -110,7 +110,39 @@ for(const section in data) {
             }
 
             sectionsList.push(thisSection)
-    }
+        }
+
+        const t = new docx.Table({
+            columnWidths: [3505, 5505],
+            rows: [
+                new docx.TableRow({
+                    children: [
+                        new docx.TableCell({
+                            width: {
+                                size: 3505,
+                                type: docx.WidthType.DXA,
+                            },
+                            children: [new docx.Paragraph("Hello")],
+                        }),
+                        new docx.TableCell({
+                            width: {
+                                size: 5505,
+                                type: docx.WidthType.DXA,
+                            },
+                            children: [new docx.Paragraph("World")],
+                        }),
+                    ],
+                }),
+            ],
+        });
+
+
+        sectionsList.push({
+            properties: {
+                type: docx.SectionType
+            },
+            children: [t]
+        })
 }
 
 
