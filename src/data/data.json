@@ -42,5 +42,19 @@
                 "dependentOn": "c5a63235-6476-45fd-b8dc-c310b6f6327a"
             }
         ]
+    },
+    {
+        "sectionID": 7722828,
+        "name": "Tables",
+        "questions": [
+            {
+                "id": "c5a63235-6476-45fd-b8dc-c310b6f6327a",
+                "text": "Column 1",
+                "answer": "32.2",
+                "type": "table",
+                "options": "",
+                "dependentOn": ""
+            }
+        ]
     }
 ]
